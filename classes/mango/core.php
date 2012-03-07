@@ -475,7 +475,7 @@ abstract class Mango_Core implements Mango_Interface {
 					return FALSE;
 				}
 			}
-			elseif ( $value === NULL || $value === '' || $match_default)
+			elseif ( $value === NULL || $match_default)
 			{
 				// setting unset field to NULL / empty string / default value -> nothing happens
 				return;
@@ -1273,12 +1273,6 @@ abstract class Mango_Core implements Mango_Interface {
 		{
 			// Apply filters
 			$value = $this->run_filters($name, $value);
-
-			// Empty string
-			if ( is_string($value) && $value === '')
-			{
-				$value = NULL;
-			}
 		}
 
 		if ( $value !== NULL || $clean === TRUE)
@@ -1339,7 +1333,7 @@ abstract class Mango_Core implements Mango_Interface {
 					}
 				break;
 				case 'string':
-					$value = trim((string) $value);
+					$value = (string) $value;
 
 					if ( ! $clean && strlen($value))
 					{
@@ -1393,11 +1387,6 @@ abstract class Mango_Core implements Mango_Interface {
 						? $value
 						: NULL;
 				break;
-			}
-
-			if ( ! $clean && is_string($value) && $value === '')
-			{
-				$value = NULL;
 			}
 		}
 
