@@ -741,6 +741,15 @@ abstract class Mango_Core implements Mango_Interface {
 	{
 		return $this->_embedded || (isset($this->_id) && !isset($this->_changed['_id']));
 	}
+  
+  /**
+   * See if embedded
+   *
+   * @return boolean 
+   */
+  public function embedded() {
+    return $this->_embedded;
+  }
 
 	/**
 	 * Get all of the changed fields as an associative array.
