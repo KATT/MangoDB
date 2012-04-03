@@ -270,6 +270,13 @@ abstract class Mango_Core implements Mango_Interface {
 
 		return $this->_db;
 	}
+	/**
+	 * @return  array  clean array
+	 */
+	public function clean()
+	{
+    return $this->_clean;
+	}
 
 	/**
 	 * Retrieve creation timestamp from MongoID object
